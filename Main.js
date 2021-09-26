@@ -16,7 +16,7 @@ app.set('view engine', 'ejs').use(express.static( "public" ))
 
   console.log(`IP: ${ip.replace("::ffff:", "")}`);
 
-  res.render('embed.ejs', { title: decodeURIComponent(qs.escape(`${req.query.title||cfg.embedDefaultTitle}`)), desc: decodeURIComponent(qs.escape(`${req.query.desc||cfg.embedDefaultDescription}`)), color: req.query.color, image: `${req.protocol + "://" + req.get('host')}/Images/${req.params["id"]}`, embedMode: cfg.embedMode });
+  res.render('embed.ejs', { title: decodeURIComponent(qs.escape(`${req.query.title||cfg.embedDefaultTitle}`)), desc: decodeURIComponent(qs.escape(`${req.query.desc||cfg.embedDefaultDescription}`)), color: req.query.color, image: `${req.protocol + "://" + req.get('host')}/Images/${req.params["id"]}`, embedMode: cfg.embedMode, ip: ip });
 }).get('/query?:id', function(req, res) {
 
   //Ex: http://localhost:3001/query?id=Dragon.jpg
@@ -25,7 +25,7 @@ app.set('view engine', 'ejs').use(express.static( "public" ))
 
   console.log(`IP: ${ip.replace("::ffff:", "")}`);
 
-  res.render('embed.ejs', { title: decodeURIComponent(qs.escape(`${req.query.title||cfg.embedDefaultTitle}`)), desc: decodeURIComponent(qs.escape(`${req.query.desc||cfg.embedDefaultDescription}`)), color: req.query.color, image: `${req.protocol + "://" + req.get('host')}/Images/${req.query["id"]}`, embedMode: cfg.embedMode });
+  res.render('embed.ejs', { title: decodeURIComponent(qs.escape(`${req.query.title||cfg.embedDefaultTitle}`)), desc: decodeURIComponent(qs.escape(`${req.query.desc||cfg.embedDefaultDescription}`)), color: req.query.color, image: `${req.protocol + "://" + req.get('host')}/Images/${req.query["id"]}`, embedMode: cfg.embedMode, ip: ip });
 }).listen(cfg.Port, () => {
   console.log(`Listening at http://localhost:${cfg.Port}\nEmbeds: https://github.com/n0vuh/embeds`)
 })
