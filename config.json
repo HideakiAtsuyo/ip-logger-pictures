@@ -1,0 +1,7 @@
+{
+    "Port": "3001",
+    "embedMode": true,
+    
+    "embedDefaultTitle": "Title",
+    "embedDefaultDescription": "Description"
+}

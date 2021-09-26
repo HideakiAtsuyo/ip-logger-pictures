@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <% if (embedMode == true) { %>
+  <meta content="<%= title %>" property="og:site_name">
+  <meta content="<%= desc %>" property="og:description">
+  <meta content="#<%= color %>" property="theme-color">
+  <meta content="<%= image %>" property="og:image">
+  <% } %>
+  <title><%= title %></title>
+</head>
+<body>
+	<img src="<%= image %>">
+</body>
+</html>
